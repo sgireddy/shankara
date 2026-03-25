@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>निर्वाण षट्कम् — Nirvana Shatakam — నిర్వాణ షట్కమ్</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  @page {
+    size: A4;
+    margin: 1.8cm 2cm 2cm 2cm;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #2c2c2c;
+    background: #fff;
+  }
+
+  /* ─── Title Page ─── */
+  .title-page {
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    text-align: center;
+    padding: 3cm 2cm;
+  }
+
+  .title-page .om {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 64pt;
+    color: #b8860b;
+    margin-bottom: 0.3cm;
+    line-height: 1;
+  }
+
+  .title-page .sanskrit-title {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: #8b1a1a;
+    margin-bottom: 0.3cm;
+    line-height: 1.3;
+  }
+
+  .title-page .telugu-title {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 0.3cm;
+    line-height: 1.3;
+  }
+
+  .title-page .english-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #4a3520;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 0.8cm;
+  }
+
+  .title-page .subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1.5cm;
+    max-width: 70%;
+    line-height: 1.5;
+  }
+
+  .title-page .author {
+    font-size: 14pt;
+    color: #8b1a1a;
+    font-weight: 600;
+    margin-bottom: 0.2cm;
+  }
+
+  .title-page .author-sanskrit {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 14pt;
+    color: #8b1a1a;
+    margin-bottom: 0.2cm;
+  }
+
+  .title-page .author-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 14pt;
+    color: #1a3a5c;
+  }
+
+  .divider {
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b8860b, transparent);
+    margin: 0.8cm auto;
+  }
+
+  .title-page .legend-box {
+    margin-top: 1.5cm;
+    padding: 0.6cm 1.2cm;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafaf6;
+    text-align: left;
+    font-size: 9.5pt;
+  }
+
+  .legend-box .legend-title {
+    font-weight: 700;
+    font-size: 10pt;
+    margin-bottom: 0.3cm;
+    color: #333;
+    text-align: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.15cm;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  /* ─── Verse Pages ─── */
+  .verse-page {
+    page-break-after: always;
+    padding: 0.5cm 0;
+  }
+
+  .verse-page:last-of-type {
+    page-break-after: auto;
+  }
+
+  .verse-header {
+    text-align: center;
+    margin-bottom: 0.6cm;
+    padding-bottom: 0.4cm;
+    border-bottom: 2px solid #b8860b;
+  }
+
+  .verse-number {
+    font-size: 11pt;
+    color: #b8860b;
+    font-weight: 700;
+    letter-spacing: 3pt;
+    text-transform: uppercase;
+    margin-bottom: 0.1cm;
+  }
+
+  .verse-theme {
+    font-size: 13pt;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* ─── Sanskrit Block ─── */
+  .section-label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    margin-bottom: 0.2cm;
+    margin-top: 0.5cm;
+    padding-left: 0.2cm;
+  }
+
+  .label-sanskrit { color: #8b1a1a; }
+  .label-telugu { color: #1a3a5c; }
+  .label-transliteration { color: #5c3a1a; }
+  .label-meaning-en { color: #2a5c2a; }
+  .label-meaning-te { color: #4a1a6b; }
+
+  .sanskrit-block {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #8b1a1a;
+    line-height: 2;
+    padding: 0.4cm 0.5cm;
+    background: #fdf6f0;
+    border-left: 3px solid #8b1a1a;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.1cm;
+  }
+
+  .telugu-block {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: #1a3a5c;
+    line-height: 2;
+    padding: 0.4cm 0.5cm;
+    background: #f0f4fa;
+    border-left: 3px solid #1a3a5c;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.1cm;
+  }
+
+  .transliteration-block {
+    font-family: 'Crimson Text', serif;
+    font-size: 11.5pt;
+    font-style: italic;
+    color: #5c3a1a;
+    line-height: 1.9;
+    padding: 0.3cm 0.5cm;
+    background: #faf6f0;
+    border-left: 3px solid #5c3a1a;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.1cm;
+  }
+
+  .meaning-en-block {
+    font-family: 'Crimson Text', serif;
+    font-size: 11pt;
+    color: #2a5c2a;
+    line-height: 1.8;
+    padding: 0.3cm 0.5cm;
+    background: #f2f8f2;
+    border-left: 3px solid #2a5c2a;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.1cm;
+  }
+
+  .meaning-te-block {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 11pt;
+    color: #4a1a6b;
+    line-height: 1.9;
+    padding: 0.3cm 0.5cm;
+    background: #f6f0fa;
+    border-left: 3px solid #4a1a6b;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.1cm;
+  }
+
+  .refrain {
+    font-weight: 700;
+  }
+
+  .refrain-highlight {
+    background: linear-gradient(180deg, transparent 50%, #ffeeba 50%);
+    padding: 0 2px;
+  }
+
+  /* ─── Footnotes / Word-by-Word ─── */
+  .footnotes {
+    margin-top: 0.5cm;
+    padding-top: 0.4cm;
+    border-top: 1px solid #ccc;
+  }
+
+  .footnotes-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    color: #888;
+    margin-bottom: 0.3cm;
+  }
+
+  .word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.05cm 0.8cm;
+    font-size: 8.5pt;
+  }
+
+  .word-entry {
+    display: flex;
+    align-items: baseline;
+    padding: 0.06cm 0;
+    border-bottom: 1px dotted #e0e0e0;
+  }
+
+  .word-sanskrit {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: #8b1a1a;
+    font-weight: 600;
+    min-width: 2.5cm;
+    font-size: 9pt;
+  }
+
+  .word-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    color: #1a3a5c;
+    min-width: 2.2cm;
+    font-size: 9pt;
+  }
+
+  .word-transliteration {
+    font-style: italic;
+    color: #5c3a1a;
+    min-width: 2.5cm;
+  }
+
+  .word-meaning {
+    color: #2a5c2a;
+    flex: 1;
+  }
+
+  .word-meaning-te {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    color: #4a1a6b;
+    font-size: 8.5pt;
+  }
+
+  .word-sep {
+    color: #ccc;
+    margin: 0 4px;
+  }
+
+  /* ─── Final Page ─── */
+  .final-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 3cm 2.5cm;
+  }
+
+  .final-page .final-sanskrit {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #b8860b;
+    margin-bottom: 0.5cm;
+    line-height: 1.4;
+  }
+
+  .final-page .final-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 0.5cm;
+    line-height: 1.4;
+  }
+
+  .final-page .final-english {
+    font-family: 'Crimson Text', serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: #4a3520;
+    line-height: 1.6;
+    max-width: 75%;
+  }
+
+  .line { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ TITLE PAGE ═══════════════════════════════════════ -->
+<div class="title-page">
+  <div class="om">ॐ</div>
+  <div class="sanskrit-title">निर्वाण षट्कम्</div>
+  <div class="telugu-title">నిర్వాణ షట్కమ్</div>
+  <div class="english-title">Nirvana Shatakam</div>
+  <div class="subtitle">The Six Verses on Liberation — Six stanzas revealing the nature of the Self,<br>composed by Adi Shankaracharya as an answer to the question<br><strong>"Ko'ham?" — "Who are you?"</strong></div>
+
+  <div class="divider"></div>
+
+  <div class="author">Composed by Adi Shankaracharya (788–820 CE)</div>
+  <div class="author-sanskrit">रचयिता — आदि शंकराचार्य</div>
+  <div class="author-telugu">రచయిత — ఆది శంకరాచార్య</div>
+
+  <div class="divider"></div>
+
+  <div class="legend-box">
+    <div class="legend-title">Color Guide / రంగు గైడ్</div>
+    <div class="legend-item"><div class="legend-color" style="background:#8b1a1a;"></div> <strong>Sanskrit (Devanagari)</strong> — संस्कृतम् (देवनागरी)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#1a3a5c;"></div> <strong>Telugu</strong> — తెలుగు</div>
+    <div class="legend-item"><div class="legend-color" style="background:#5c3a1a;"></div> <strong>Transliteration (IAST)</strong> — ఆంగ్ల ఉచ్చారణ</div>
+    <div class="legend-item"><div class="legend-color" style="background:#2a5c2a;"></div> <strong>English Meaning</strong> — ఆంగ్ల అర్థం</div>
+    <div class="legend-item"><div class="legend-color" style="background:#4a1a6b;"></div> <strong>Telugu Meaning</strong> — తెలుగు అర్థం</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 1 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse I — ప్రథమ శ్లోకం — प्रथम श्लोक</div>
+    <div class="verse-theme">Stripping the Mind &amp; Senses — మనస్సు మరియు ఇంద్రియాల నిరాకరణ</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">मनो बुद्ध्यहंकार चित्तानि नाहं</span>
+    <span class="line">न च श्रोत्र जिह्वे न च घ्राण नेत्रे ।</span>
+    <span class="line">न च व्योम भूमिः न तेजो न वायुः</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">మనో బుద్ధ్యహంకార చిత్తాని నాహం</span>
+    <span class="line">న చ శ్రోత్ర జిహ్వే న చ ఘ్రాణ నేత్రే ।</span>
+    <span class="line">న చ వ్యోమ భూమిః న తేజో న వాయుః</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Mano buddhyahankāra chittāni nāham</span>
+    <span class="line">Na cha shrotra jihve na cha ghrāṇa netre</span>
+    <span class="line">Na cha vyoma bhūmiḥ na tejo na vāyuḥ</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I am not the mind, not the intellect, not the ego, not the memory.</span>
+    <span class="line">I am not the ears, nor the tongue, nor the nose, nor the eyes.</span>
+    <span class="line">I am not space, not earth, not fire, not air.</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నేను మనసును కాదు, బుద్ధిని కాదు, అహంకారాన్ని కాదు, చిత్తాన్ని కాదు.</span>
+    <span class="line">నేను చెవులను కాదు, నాలుకను కాదు, ముక్కును కాదు, కన్నులను కాదు.</span>
+    <span class="line">నేను ఆకాశాన్ని కాదు, భూమిని కాదు, అగ్నిని కాదు, వాయువును కాదు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">मनः</span><span class="word-sep">·</span><span class="word-telugu">మనస్</span><span class="word-sep">·</span><span class="word-transliteration">manaḥ</span><span class="word-sep">—</span><span class="word-meaning">mind / మనసు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">बुद्धिः</span><span class="word-sep">·</span><span class="word-telugu">బుద్ధి</span><span class="word-sep">·</span><span class="word-transliteration">buddhiḥ</span><span class="word-sep">—</span><span class="word-meaning">intellect / బుద్ధి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">अहंकारः</span><span class="word-sep">·</span><span class="word-telugu">అహంకారం</span><span class="word-sep">·</span><span class="word-transliteration">ahankāraḥ</span><span class="word-sep">—</span><span class="word-meaning">ego / అహంకారము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">चित्तम्</span><span class="word-sep">·</span><span class="word-telugu">చిత్తం</span><span class="word-sep">·</span><span class="word-transliteration">chittam</span><span class="word-sep">—</span><span class="word-meaning">memory / చిత్తము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">नाहम्</span><span class="word-sep">·</span><span class="word-telugu">నాహం</span><span class="word-sep">·</span><span class="word-transliteration">nāham</span><span class="word-sep">—</span><span class="word-meaning">I am not / నేను కాదు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">श्रोत्रम्</span><span class="word-sep">·</span><span class="word-telugu">శ్రోత్రం</span><span class="word-sep">·</span><span class="word-transliteration">shrotram</span><span class="word-sep">—</span><span class="word-meaning">ears / చెవులు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">जिह्वा</span><span class="word-sep">·</span><span class="word-telugu">జిహ్వ</span><span class="word-sep">·</span><span class="word-transliteration">jihvā</span><span class="word-sep">—</span><span class="word-meaning">tongue / నాలుక</span></div>
+      <div class="word-entry"><span class="word-sanskrit">घ्राणम्</span><span class="word-sep">·</span><span class="word-telugu">ఘ్రాణం</span><span class="word-sep">·</span><span class="word-transliteration">ghrāṇam</span><span class="word-sep">—</span><span class="word-meaning">nose / ముక్కు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">नेत्रे</span><span class="word-sep">·</span><span class="word-telugu">నేత్రే</span><span class="word-sep">·</span><span class="word-transliteration">netre</span><span class="word-sep">—</span><span class="word-meaning">eyes / కన్నులు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">व्योम</span><span class="word-sep">·</span><span class="word-telugu">వ్యోమ</span><span class="word-sep">·</span><span class="word-transliteration">vyoma</span><span class="word-sep">—</span><span class="word-meaning">space, ether / ఆకాశం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">भूमिः</span><span class="word-sep">·</span><span class="word-telugu">భూమి</span><span class="word-sep">·</span><span class="word-transliteration">bhūmiḥ</span><span class="word-sep">—</span><span class="word-meaning">earth / భూమి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">तेजः</span><span class="word-sep">·</span><span class="word-telugu">తేజస్</span><span class="word-sep">·</span><span class="word-transliteration">tejaḥ</span><span class="word-sep">—</span><span class="word-meaning">fire / అగ్ని</span></div>
+      <div class="word-entry"><span class="word-sanskrit">वायुः</span><span class="word-sep">·</span><span class="word-telugu">వాయువు</span><span class="word-sep">·</span><span class="word-transliteration">vāyuḥ</span><span class="word-sep">—</span><span class="word-meaning">air / వాయువు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">चिदानन्दः</span><span class="word-sep">·</span><span class="word-telugu">చిదానందం</span><span class="word-sep">·</span><span class="word-transliteration">chidānandaḥ</span><span class="word-sep">—</span><span class="word-meaning">consciousness-bliss / చిత్ + ఆనందం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">रूपः</span><span class="word-sep">·</span><span class="word-telugu">రూపః</span><span class="word-sep">·</span><span class="word-transliteration">rūpaḥ</span><span class="word-sep">—</span><span class="word-meaning">nature, form / స్వరూపం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">शिवः</span><span class="word-sep">·</span><span class="word-telugu">శివుడు</span><span class="word-sep">·</span><span class="word-transliteration">śhivaḥ</span><span class="word-sep">—</span><span class="word-meaning">the auspicious Self / శివుడు, మంగళ స్వరూపుడు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">अहम्</span><span class="word-sep">·</span><span class="word-telugu">అహం</span><span class="word-sep">·</span><span class="word-transliteration">aham</span><span class="word-sep">—</span><span class="word-meaning">I am / నేను</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 2 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse II — ద్వితీయ శ్లోకం — द्वितीय श्लोक</div>
+    <div class="verse-theme">Stripping the Body — శరీరము యొక్క నిరాకరణ</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">न च प्राण संज्ञो न वै पञ्चवायुः</span>
+    <span class="line">न वा सप्तधातुर्न वा पञ्चकोशः ।</span>
+    <span class="line">न वाक्पाणिपादौ न चोपस्थपायू</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">న చ ప్రాణ సంజ్ఞో న వై పంచవాయుః</span>
+    <span class="line">న వా సప్తధాతుర్న వా పంచకోశః ।</span>
+    <span class="line">న వాక్పాణిపాదౌ న చోపస్థపాయూ</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Na cha prāṇa saṁjño na vai panchavāyuḥ</span>
+    <span class="line">Na vā saptadhātur na vā panchakośhaḥ</span>
+    <span class="line">Na vākpāṇipādau na chopasthapāyū</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I am not the vital breath. I am not the five airs.</span>
+    <span class="line">I am not the seven bodily tissues, nor the five sheaths.</span>
+    <span class="line">I am not the voice, not the hands, not the feet, nor the organs.</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నేను ప్రాణాన్ని కాదు, పంచవాయువులను కాదు.</span>
+    <span class="line">నేను సప్తధాతువులను కాదు, పంచకోశాలను కాదు.</span>
+    <span class="line">నేను వాక్కును కాదు, చేతులను కాదు, పాదాలను కాదు, ఇంద్రియాలను కాదు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">प्राणः</span><span class="word-sep">·</span><span class="word-telugu">ప్రాణం</span><span class="word-sep">·</span><span class="word-transliteration">prāṇaḥ</span><span class="word-sep">—</span><span class="word-meaning">vital breath / ప్రాణము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पञ्चवायुः</span><span class="word-sep">·</span><span class="word-telugu">పంచవాయువులు</span><span class="word-sep">·</span><span class="word-transliteration">panchavāyuḥ</span><span class="word-sep">—</span><span class="word-meaning">five vital airs (prāṇa, apāna, vyāna, udāna, samāna) / ఐదు వాయువులు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">सप्तधातुः</span><span class="word-sep">·</span><span class="word-telugu">సప్తధాతువులు</span><span class="word-sep">·</span><span class="word-transliteration">saptadhātuḥ</span><span class="word-sep">—</span><span class="word-meaning">seven tissues (plasma, blood, muscle, fat, bone, marrow, reproductive) / ఏడు ధాతువులు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पञ्चकोशः</span><span class="word-sep">·</span><span class="word-telugu">పంచకోశాలు</span><span class="word-sep">·</span><span class="word-transliteration">panchakośhaḥ</span><span class="word-sep">—</span><span class="word-meaning">five sheaths (food, vital, mental, wisdom, bliss) / ఐదు కోశములు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">वाक्</span><span class="word-sep">·</span><span class="word-telugu">వాక్కు</span><span class="word-sep">·</span><span class="word-transliteration">vāk</span><span class="word-sep">—</span><span class="word-meaning">speech / వాక్కు, మాట</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पाणि</span><span class="word-sep">·</span><span class="word-telugu">పాణి</span><span class="word-sep">·</span><span class="word-transliteration">pāṇi</span><span class="word-sep">—</span><span class="word-meaning">hands / చేతులు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पादौ</span><span class="word-sep">·</span><span class="word-telugu">పాదాలు</span><span class="word-sep">·</span><span class="word-transliteration">pādau</span><span class="word-sep">—</span><span class="word-meaning">feet / పాదములు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">उपस्थ</span><span class="word-sep">·</span><span class="word-telugu">ఉపస్థ</span><span class="word-sep">·</span><span class="word-transliteration">upastha</span><span class="word-sep">—</span><span class="word-meaning">organ of generation / జననేంద్రియం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पायू</span><span class="word-sep">·</span><span class="word-telugu">పాయువు</span><span class="word-sep">·</span><span class="word-transliteration">pāyū</span><span class="word-sep">—</span><span class="word-meaning">organ of excretion / విసర్జనేంద్రియం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">संज्ञः</span><span class="word-sep">·</span><span class="word-telugu">సంజ్ఞ</span><span class="word-sep">·</span><span class="word-transliteration">saṁjñaḥ</span><span class="word-sep">—</span><span class="word-meaning">known as, identified with / అని పిలువబడే</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 3 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse III — తృతీయ శ్లోకం — तृतीय श्लोक</div>
+    <div class="verse-theme">Stripping Desire &amp; Morality — కోరికలు మరియు ధర్మాల నిరాకరణ</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">न मे द्वेषरागौ न मे लोभमोहौ</span>
+    <span class="line">मदो नैव मे नैव मात्सर्यभावः ।</span>
+    <span class="line">न धर्मो न चार्थो न कामो न मोक्षः</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">న మే ద్వేషరాగౌ న మే లోభమోహౌ</span>
+    <span class="line">మదో నైవ మే నైవ మాత్సర్యభావః ।</span>
+    <span class="line">న ధర్మో న చార్థో న కామో న మోక్షః</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Na me dveṣharāgau na me lobhamohau</span>
+    <span class="line">Mado naiva me naiva mātsaryabhāvaḥ</span>
+    <span class="line">Na dharmo na chārtho na kāmo na mokshaḥ</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I have no hatred or passion. I have no greed or delusion.</span>
+    <span class="line">I have no pride, nor any jealousy.</span>
+    <span class="line">I have no dharma (duty), no artha (wealth), no kama (desire), no moksha (liberation).</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నాకు ద్వేషం లేదు, రాగం లేదు, లోభం లేదు, మోహం లేదు.</span>
+    <span class="line">నాకు మదం లేదు, మాత్సర్యం లేదు.</span>
+    <span class="line">నాకు ధర్మం లేదు, అర్థం లేదు, కామం లేదు, మోక్షం లేదు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">द्वेषः</span><span class="word-sep">·</span><span class="word-telugu">ద్వేషం</span><span class="word-sep">·</span><span class="word-transliteration">dveṣhaḥ</span><span class="word-sep">—</span><span class="word-meaning">hatred / ద్వేషము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">रागः</span><span class="word-sep">·</span><span class="word-telugu">రాగం</span><span class="word-sep">·</span><span class="word-transliteration">rāgaḥ</span><span class="word-sep">—</span><span class="word-meaning">attachment, passion / ఆసక్తి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">लोभः</span><span class="word-sep">·</span><span class="word-telugu">లోభం</span><span class="word-sep">·</span><span class="word-transliteration">lobhaḥ</span><span class="word-sep">—</span><span class="word-meaning">greed / లోభము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मोहः</span><span class="word-sep">·</span><span class="word-telugu">మోహం</span><span class="word-sep">·</span><span class="word-transliteration">mohaḥ</span><span class="word-sep">—</span><span class="word-meaning">delusion / మోహము, భ్రమ</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मदः</span><span class="word-sep">·</span><span class="word-telugu">మదం</span><span class="word-sep">·</span><span class="word-transliteration">madaḥ</span><span class="word-sep">—</span><span class="word-meaning">pride, arrogance / గర్వం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मात्सर्यम्</span><span class="word-sep">·</span><span class="word-telugu">మాత్సర్యం</span><span class="word-sep">·</span><span class="word-transliteration">mātsaryam</span><span class="word-sep">—</span><span class="word-meaning">jealousy, envy / ఈర్ష్య</span></div>
+      <div class="word-entry"><span class="word-sanskrit">धर्मः</span><span class="word-sep">·</span><span class="word-telugu">ధర్మం</span><span class="word-sep">·</span><span class="word-transliteration">dharmaḥ</span><span class="word-sep">—</span><span class="word-meaning">duty, righteousness / ధర్మము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">अर्थः</span><span class="word-sep">·</span><span class="word-telugu">అర్థం</span><span class="word-sep">·</span><span class="word-transliteration">arthaḥ</span><span class="word-sep">—</span><span class="word-meaning">wealth, purpose / అర్థము, సంపద</span></div>
+      <div class="word-entry"><span class="word-sanskrit">कामः</span><span class="word-sep">·</span><span class="word-telugu">కామం</span><span class="word-sep">·</span><span class="word-transliteration">kāmaḥ</span><span class="word-sep">—</span><span class="word-meaning">desire, pleasure / కామము, కోరిక</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मोक्षः</span><span class="word-sep">·</span><span class="word-telugu">మోక్షం</span><span class="word-sep">·</span><span class="word-transliteration">mokshaḥ</span><span class="word-sep">—</span><span class="word-meaning">liberation / మోక్షము, విముక్తి</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 4 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse IV — చతుర్థ శ్లోకం — चतुर्थ श्लोक</div>
+    <div class="verse-theme">Stripping Sin &amp; Virtue — పుణ్య పాపాల నిరాకరణ</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">न पुण्यं न पापं न सौख्यं न दुःखं</span>
+    <span class="line">न मन्त्रो न तीर्थं न वेदा न यज्ञः ।</span>
+    <span class="line">अहं भोजनं नैव भोज्यं न भोक्ता</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">న పుణ్యం న పాపం న సౌఖ్యం న దుఃఖం</span>
+    <span class="line">న మంత్రో న తీర్థం న వేదా న యజ్ఞః ।</span>
+    <span class="line">అహం భోజనం నైవ భోజ్యం న భోక్తా</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Na puṇyam na pāpam na saukhyam na duḥkham</span>
+    <span class="line">Na mantro na tīrtham na vedā na yajñaḥ</span>
+    <span class="line">Aham bhojanam naiva bhojyam na bhoktā</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I am not virtue, not sin, not pleasure, not pain.</span>
+    <span class="line">I am not mantra, not pilgrimage, not scripture, not ritual sacrifice.</span>
+    <span class="line">I am not the food, nor the eating, nor the eater.</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నేను పుణ్యాన్ని కాదు, పాపాన్ని కాదు, సుఖాన్ని కాదు, దుఃఖాన్ని కాదు.</span>
+    <span class="line">నేను మంత్రాన్ని కాదు, తీర్థాన్ని కాదు, వేదాలను కాదు, యజ్ఞాన్ని కాదు.</span>
+    <span class="line">నేను భోజనాన్ని కాదు, భోజ్యాన్ని కాదు, భోక్తను కాదు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">पुण्यम्</span><span class="word-sep">·</span><span class="word-telugu">పుణ్యం</span><span class="word-sep">·</span><span class="word-transliteration">puṇyam</span><span class="word-sep">—</span><span class="word-meaning">merit, virtue / పుణ్యము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पापम्</span><span class="word-sep">·</span><span class="word-telugu">పాపం</span><span class="word-sep">·</span><span class="word-transliteration">pāpam</span><span class="word-sep">—</span><span class="word-meaning">sin / పాపము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">सौख्यम्</span><span class="word-sep">·</span><span class="word-telugu">సౌఖ్యం</span><span class="word-sep">·</span><span class="word-transliteration">saukhyam</span><span class="word-sep">—</span><span class="word-meaning">pleasure, happiness / సుఖము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">दुःखम्</span><span class="word-sep">·</span><span class="word-telugu">దుఃఖం</span><span class="word-sep">·</span><span class="word-transliteration">duḥkham</span><span class="word-sep">—</span><span class="word-meaning">pain, suffering / దుఃఖము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मन्त्रः</span><span class="word-sep">·</span><span class="word-telugu">మంత్రం</span><span class="word-sep">·</span><span class="word-transliteration">mantraḥ</span><span class="word-sep">—</span><span class="word-meaning">sacred chant / మంత్రము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">तीर्थम्</span><span class="word-sep">·</span><span class="word-telugu">తీర్థం</span><span class="word-sep">·</span><span class="word-transliteration">tīrtham</span><span class="word-sep">—</span><span class="word-meaning">pilgrimage / తీర్థయాత్ర</span></div>
+      <div class="word-entry"><span class="word-sanskrit">वेदाः</span><span class="word-sep">·</span><span class="word-telugu">వేదాలు</span><span class="word-sep">·</span><span class="word-transliteration">vedāḥ</span><span class="word-sep">—</span><span class="word-meaning">scriptures / వేదములు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">यज्ञः</span><span class="word-sep">·</span><span class="word-telugu">యజ్ఞం</span><span class="word-sep">·</span><span class="word-transliteration">yajñaḥ</span><span class="word-sep">—</span><span class="word-meaning">ritual sacrifice / యజ్ఞము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">भोजनम्</span><span class="word-sep">·</span><span class="word-telugu">భోజనం</span><span class="word-sep">·</span><span class="word-transliteration">bhojanam</span><span class="word-sep">—</span><span class="word-meaning">food, experience / భోజనము, అనుభవం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">भोज्यम्</span><span class="word-sep">·</span><span class="word-telugu">భోజ్యం</span><span class="word-sep">·</span><span class="word-transliteration">bhojyam</span><span class="word-sep">—</span><span class="word-meaning">that which is consumed / భోజ్యము, తినబడేది</span></div>
+      <div class="word-entry"><span class="word-sanskrit">भोक्ता</span><span class="word-sep">·</span><span class="word-telugu">భోక్త</span><span class="word-sep">·</span><span class="word-transliteration">bhoktā</span><span class="word-sep">—</span><span class="word-meaning">the consumer, experiencer / భోక్త, అనుభవించేవాడు</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 5 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse V — పంచమ శ్లోకం — पञ्चम श्लोक</div>
+    <div class="verse-theme">Stripping Death &amp; Relations — మృత్యువు మరియు బంధాల నిరాకరణ</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">न मे मृत्युशङ्का न मे जातिभेदः</span>
+    <span class="line">पिता नैव मे नैव माता न जन्म ।</span>
+    <span class="line">न बन्धुर्न मित्रं गुरुर्नैव शिष्यः</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">న మే మృత్యుశంకా న మే జాతిభేదః</span>
+    <span class="line">పితా నైవ మే నైవ మాతా న జన్మ ।</span>
+    <span class="line">న బంధుర్న మిత్రం గురుర్నైవ శిష్యః</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Na me mṛtyuśhaṅkā na me jātibhedaḥ</span>
+    <span class="line">Pitā naiva me naiva mātā na janma</span>
+    <span class="line">Na bandhur na mitram gurur naiva śhiṣhyaḥ</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I have no fear of death. I have no caste distinction.</span>
+    <span class="line">I have no father, no mother, no birth.</span>
+    <span class="line">I have no relative, no friend, no guru, no disciple.</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నాకు మృత్యు భయం లేదు, జాతి భేదం లేదు.</span>
+    <span class="line">నాకు తండ్రి లేడు, తల్లి లేదు, జన్మ లేదు.</span>
+    <span class="line">నాకు బంధువు లేడు, మిత్రుడు లేడు, గురువు లేడు, శిష్యుడు లేడు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">मृत्युः</span><span class="word-sep">·</span><span class="word-telugu">మృత్యువు</span><span class="word-sep">·</span><span class="word-transliteration">mṛtyuḥ</span><span class="word-sep">—</span><span class="word-meaning">death / మృత్యువు, మరణం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">शङ्का</span><span class="word-sep">·</span><span class="word-telugu">శంక</span><span class="word-sep">·</span><span class="word-transliteration">śhaṅkā</span><span class="word-sep">—</span><span class="word-meaning">fear, doubt / భయం, సంశయం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">जातिः</span><span class="word-sep">·</span><span class="word-telugu">జాతి</span><span class="word-sep">·</span><span class="word-transliteration">jātiḥ</span><span class="word-sep">—</span><span class="word-meaning">caste, birth class / జాతి, కులం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">भेदः</span><span class="word-sep">·</span><span class="word-telugu">భేదం</span><span class="word-sep">·</span><span class="word-transliteration">bhedaḥ</span><span class="word-sep">—</span><span class="word-meaning">distinction, division / భేదము, తేడా</span></div>
+      <div class="word-entry"><span class="word-sanskrit">पिता</span><span class="word-sep">·</span><span class="word-telugu">పిత (తండ్రి)</span><span class="word-sep">·</span><span class="word-transliteration">pitā</span><span class="word-sep">—</span><span class="word-meaning">father / తండ్రి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">माता</span><span class="word-sep">·</span><span class="word-telugu">మాత (తల్లి)</span><span class="word-sep">·</span><span class="word-transliteration">mātā</span><span class="word-sep">—</span><span class="word-meaning">mother / తల్లి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">जन्म</span><span class="word-sep">·</span><span class="word-telugu">జన్మ</span><span class="word-sep">·</span><span class="word-transliteration">janma</span><span class="word-sep">—</span><span class="word-meaning">birth / జన్మ, పుట్టుక</span></div>
+      <div class="word-entry"><span class="word-sanskrit">बन्धुः</span><span class="word-sep">·</span><span class="word-telugu">బంధువు</span><span class="word-sep">·</span><span class="word-transliteration">bandhuḥ</span><span class="word-sep">—</span><span class="word-meaning">relative / బంధువు, చుట్టం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मित्रम्</span><span class="word-sep">·</span><span class="word-telugu">మిత్రం</span><span class="word-sep">·</span><span class="word-transliteration">mitram</span><span class="word-sep">—</span><span class="word-meaning">friend / మిత్రుడు, స్నేహితుడు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">गुरुः</span><span class="word-sep">·</span><span class="word-telugu">గురువు</span><span class="word-sep">·</span><span class="word-transliteration">guruḥ</span><span class="word-sep">—</span><span class="word-meaning">teacher, spiritual guide / గురువు</span></div>
+      <div class="word-entry"><span class="word-sanskrit">शिष्यः</span><span class="word-sep">·</span><span class="word-telugu">శిష్యుడు</span><span class="word-sep">·</span><span class="word-transliteration">śhiṣhyaḥ</span><span class="word-sep">—</span><span class="word-meaning">disciple, student / శిష్యుడు, విద్యార్థి</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ VERSE 6 ═══════════════════════════════════════ -->
+<div class="verse-page">
+  <div class="verse-header">
+    <div class="verse-number">Verse VI — షష్ఠ శ్లోకం — षष्ठ श्लोक</div>
+    <div class="verse-theme">The Final Declaration — అంతిమ ఘోషణ — The Self Revealed</div>
+  </div>
+
+  <div class="section-label label-sanskrit">संस्कृतम् — Sanskrit</div>
+  <div class="sanskrit-block">
+    <span class="line">अहं निर्विकल्पो निराकार रूपो</span>
+    <span class="line">विभुत्वाच्च सर्वत्र सर्वेन्द्रियाणाम् ।</span>
+    <span class="line">न चासंगतं नैव मुक्तिर्न मेयः</span>
+    <span class="line refrain"><span class="refrain-highlight">चिदानन्द रूपः शिवोऽहं शिवोऽहम् ॥</span></span>
+  </div>
+
+  <div class="section-label label-telugu">తెలుగు — Telugu</div>
+  <div class="telugu-block">
+    <span class="line">అహం నిర్వికల్పో నిరాకార రూపో</span>
+    <span class="line">విభుత్వాచ్చ సర్వత్ర సర్వేంద్రియాణామ్ ।</span>
+    <span class="line">న చాసంగతం నైవ ముక్తిర్న మేయః</span>
+    <span class="line refrain"><span class="refrain-highlight">చిదానంద రూపః శివోఽహం శివోఽహమ్ ॥</span></span>
+  </div>
+
+  <div class="section-label label-transliteration">Transliteration — ఉచ్చారణ</div>
+  <div class="transliteration-block">
+    <span class="line">Aham nirvikalpo nirākāra rūpo</span>
+    <span class="line">Vibhutvāchcha sarvatra sarvendriyāṇām</span>
+    <span class="line">Na chāsaṅgatam naiva muktir na meyaḥ</span>
+    <span class="line refrain"><span class="refrain-highlight">Chidānanda rūpaḥ Śhivo'ham Śhivo'ham</span></span>
+  </div>
+
+  <div class="section-label label-meaning-en">English Meaning — ఆంగ్ల అర్థం</div>
+  <div class="meaning-en-block">
+    <span class="line">I am without thought-modification. I am formless.</span>
+    <span class="line">I pervade all the senses everywhere.</span>
+    <span class="line">I am neither attachment nor liberation, nor anything to be measured.</span>
+    <span class="line refrain"><span class="refrain-highlight">I am of the nature of Consciousness-Bliss. I am Shiva. I am Shiva.</span></span>
+  </div>
+
+  <div class="section-label label-meaning-te">తెలుగు అర్థం — Telugu Meaning</div>
+  <div class="meaning-te-block">
+    <span class="line">నేను నిర్వికల్పుడను, నిరాకార రూపుడను.</span>
+    <span class="line">అన్ని ఇంద్రియాలలో, అంతటా నేను వ్యాపించి ఉన్నాను.</span>
+    <span class="line">నాకు సంగం లేదు, ముక్తి లేదు, నేను కొలవదగినవాడను కాదు.</span>
+    <span class="line refrain"><span class="refrain-highlight">నేను చిదానంద స్వరూపుడను. నేను శివుడను, నేను శివుడను.</span></span>
+  </div>
+
+  <div class="footnotes">
+    <div class="footnotes-title">Word-by-Word — పద విభజన అర్థాలు</div>
+    <div class="word-grid">
+      <div class="word-entry"><span class="word-sanskrit">निर्विकल्पः</span><span class="word-sep">·</span><span class="word-telugu">నిర్వికల్పం</span><span class="word-sep">·</span><span class="word-transliteration">nirvikalpaḥ</span><span class="word-sep">—</span><span class="word-meaning">without thought-modification / వికల్పం లేని, ఆలోచనా రహితం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">निराकारः</span><span class="word-sep">·</span><span class="word-telugu">నిరాకారం</span><span class="word-sep">·</span><span class="word-transliteration">nirākāraḥ</span><span class="word-sep">—</span><span class="word-meaning">formless / రూపం లేని, నిరాకారము</span></div>
+      <div class="word-entry"><span class="word-sanskrit">विभुत्वम्</span><span class="word-sep">·</span><span class="word-telugu">విభుత్వం</span><span class="word-sep">·</span><span class="word-transliteration">vibhutvam</span><span class="word-sep">—</span><span class="word-meaning">all-pervading nature / సర్వవ్యాపకత్వం</span></div>
+      <div class="word-entry"><span class="word-sanskrit">सर्वत्र</span><span class="word-sep">·</span><span class="word-telugu">సర్వత్ర</span><span class="word-sep">·</span><span class="word-transliteration">sarvatra</span><span class="word-sep">—</span><span class="word-meaning">everywhere / అంతటా, సర్వత్ర</span></div>
+      <div class="word-entry"><span class="word-sanskrit">सर्वेन्द्रियाणाम्</span><span class="word-sep">·</span><span class="word-telugu">సర్వేంద్రియాలు</span><span class="word-sep">·</span><span class="word-transliteration">sarvendriyāṇām</span><span class="word-sep">—</span><span class="word-meaning">of all the senses / అన్ని ఇంద్రియాల యొక్క</span></div>
+      <div class="word-entry"><span class="word-sanskrit">असंगतम्</span><span class="word-sep">·</span><span class="word-telugu">అసంగం</span><span class="word-sep">·</span><span class="word-transliteration">asaṅgatam</span><span class="word-sep">—</span><span class="word-meaning">attachment / సంగం, ఆసక్తి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मुक्तिः</span><span class="word-sep">·</span><span class="word-telugu">ముక్తి</span><span class="word-sep">·</span><span class="word-transliteration">muktiḥ</span><span class="word-sep">—</span><span class="word-meaning">liberation / ముక్తి, విముక్తి</span></div>
+      <div class="word-entry"><span class="word-sanskrit">मेयः</span><span class="word-sep">·</span><span class="word-telugu">మేయం</span><span class="word-sep">·</span><span class="word-transliteration">meyaḥ</span><span class="word-sep">—</span><span class="word-meaning">measurable, knowable / కొలవదగినది</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ FINAL PAGE ═══════════════════════════════════════ -->
+<div class="final-page">
+  <div class="om" style="font-family: 'Noto Sans Devanagari', sans-serif; font-size: 48pt; color: #b8860b; margin-bottom: 1cm;">ॐ</div>
+
+  <div class="final-sanskrit">चिदानन्द रूपः शिवोऽहं शिवोऽहम्</div>
+  <div class="final-telugu">చిదానంద రూపః శివోఽహం శివోఽహమ్</div>
+
+  <div class="divider" style="width:30%; margin: 0.8cm auto;"></div>
+
+  <div class="final-english">
+    I am of the nature of Consciousness-Bliss.<br>
+    I am Shiva. I am Shiva.<br><br>
+    <em>— This is the answer to "Who am I?"</em><br>
+    <em>— ఇదే "నేను ఎవరు?" అనే ప్రశ్నకు సమాధానం</em><br>
+    <em>— यही "मैं कौन हूँ?" का उत्तर है</em>
+  </div>
+
+  <div class="divider" style="width:20%; margin: 1.5cm auto;"></div>
+
+  <div style="font-size: 9pt; color: #999; margin-top: 1cm;">
+    ॐ शान्तिः शान्तिः शान्तिः<br>
+    ఓం శాంతిః శాంతిః శాంతిః<br>
+    Om Shāntiḥ Shāntiḥ Shāntiḥ<br>
+    <em>Om Peace Peace Peace</em>
+  </div>
+</div>
+
+</body>
+</html>
